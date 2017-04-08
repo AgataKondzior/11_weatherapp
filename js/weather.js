@@ -1,20 +1,25 @@
-if ("geolocation" in navigator) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-loadWeather(position.coords.lattitude + “,” + position.coords.longitude);
+$(document).ready(function() {
+  getWeather();
+  setInterval(getWeather, 10000);
 });
-}
+
+function getWeather(){
+    if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            loadWeather(position.coords.latitude + ',' + position.coords.longitude);
+});
+
     else {
-        loadWeather ("Mińsk Mazowiecki, PL","");
+        loadWeather("Warsaw, PL",'');
     }
-    $(document).ready(function() {
-        setInterval(getWeather, 10000);
-    });
+}
+    
 
     function loadWeather(location, woeid) {
         $.simpleWeather({
             location: location,
             woeid: woeid,
-            unit: "c",
+            unit: 'c',
             success: function(weather) {
                 city = weather.city;
                 temp = weather.temp + "&deg;";
@@ -22,8 +27,8 @@ loadWeather(position.coords.lattitude + “,” + position.coords.longitude);
                 wind = '<p>' + weather.wind.speed + '</p><p>' + weather.units.speed + '</p>';
                 humidity = weather.humidity + "%";
 
-                    $(".location").text(city);
-                $(".temperature").html(temp); 	 	
+                $(".location").text(city);
+                $(".temperature").html(temp);	
                 $(".climate.bg").html(wcode);
                 $(".windspeed").html(wind);
                 ("humidity".).text(humidity);
