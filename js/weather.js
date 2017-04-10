@@ -1,12 +1,13 @@
-    if ("geolocation" in navigator) {
+ function getWeather (){  
+
+if ("geolocation" in navigator) {
        navigator.geolocation.getCurrentPosition(function(position) {
          loadWeather(position.coords.latitude + ',' + position.coords.longitude);
 });
-    }
-    else {
+    } else {
         loadWeather("Warsaw, PL",'');
     }
-
+    }
   
     $(document).ready(function() {
          setInterval(loadWeather, 10000);
