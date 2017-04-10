@@ -28,7 +28,7 @@ $(document).ready(function() {
                 $(".temperature").html(temp);	
                 $(".climate.bg").html(wcode);
                 $(".windspeed").html(wind);
-                ("humidity".).text(humidity);
+                $(."humidity").text(humidity);
             },
            
             error: function(error) {
