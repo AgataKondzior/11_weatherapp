@@ -1,6 +1,6 @@
 $(document).ready(function()
          getWeather ();
-         setInterval(getWeather, 10000);
+         setInterval(getWeather, 180000);
 }); 
  
 function getWeather(){
