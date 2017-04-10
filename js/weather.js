@@ -7,7 +7,7 @@ if ("geolocation" in navigator) {
     } else {
         loadWeather("Warsaw, PL",'');
     }
-    }
+    
   
     $(document).ready(function() {
          setInterval(loadWeather, 10000);
