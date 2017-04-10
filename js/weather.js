@@ -8,7 +8,7 @@
     }
 
 $(document).ready(function()
-         setInterval(getWeather, 10000);
+         setInterval(loadWeather, 10000);
 } 
     function loadWeather(location, woeid) {
         $.simpleWeather({
