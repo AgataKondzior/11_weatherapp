@@ -1,4 +1,4 @@
-
+  function getWeather() {
   if ("geolocation" in navigator) {
        navigator.geolocation.getCurrentPosition(function(position) {
          loadWeather(position.coords.latitude + ',' + position.coords.longitude);
@@ -7,9 +7,11 @@
         loadWeather("Warsaw, PL",'');
     }
 
-$(document).ready(function()
-         setInterval(loadWeather, 10000);
-} 
+$(document).ready(function() {
+         setInterval(getWeather, 10000);
+  getWeather();
+});
+    
     function loadWeather(location, woeid) {
         $.simpleWeather({
             location: location,
